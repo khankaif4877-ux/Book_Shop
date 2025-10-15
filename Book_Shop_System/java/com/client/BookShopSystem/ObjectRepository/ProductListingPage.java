@@ -39,4 +39,9 @@ public class ProductListingPage {
 		return actualPrice;
 	}
 	
+	public int getPriceAfterDiscount(WebElement element ) {
+		
+
+	return Integer.parseInt( element.getText().substring(element.getText().length() - 13,element.getText().length() - 10));
+}
 }
