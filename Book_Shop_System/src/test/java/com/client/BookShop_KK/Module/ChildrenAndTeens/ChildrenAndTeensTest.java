@@ -9,6 +9,20 @@ import com.client.BookShopSystem.BaseUtility.BaseClass;
 
 public class ChildrenAndTeensTest extends BaseClass {
 	
+	@Test(groups = "integration")
+	public void DemochildAndTeensLinkAndProductListingPageTest() {
+		 String value = exlutil.getDataFromExcelSheet("Kaif Khan", 4, 0);
+		hp.getSideBarText(value).click();
+//		hp.getchildAndTeenLink().click();
+//		Assert.assertEquals(text.toLowerCase(), n.toLowerCase());
+		Assert.assertEquals(plp.getHeading().isDisplayed(), true);
+		plp.getFirstBook().isDisplayed();
+		WebElement book = plp.getFirstBook();
+		int priceAfterDiscount =plp.getPriceAfterDiscount(book);
+    	Assert.assertTrue(priceAfterDiscount>0);
+		plp.getActualPrice().isDisplayed();
+	}
+
 	
 	@Test(groups = "integration",dataProvider = "categoryNamesData")
 	public void childAndTeensLinkAndProductListingPageTest(String name,String n) {
@@ -22,20 +36,6 @@ public class ChildrenAndTeensTest extends BaseClass {
     	Assert.assertTrue(priceAfterDiscount>0);
 		plp.getActualPrice().isDisplayed();
 	}
-	@Test(groups = "integration")
-	public void DemochildAndTeensLinkAndProductListingPageTest() {
-		 String value = exlutil.getDataFromExcelSheet("Kaif Khan", 5, 0);
-		hp.getSideBarText(value).click();
-//		hp.getchildAndTeenLink().click();
-//		Assert.assertEquals(text.toLowerCase(), n.toLowerCase());
-		Assert.assertEquals(plp.getHeading().isDisplayed(), true);
-		plp.getFirstBook().isDisplayed();
-		WebElement book = plp.getFirstBook();
-		int priceAfterDiscount =plp.getPriceAfterDiscount(book);
-    	Assert.assertTrue(priceAfterDiscount>0);
-		plp.getActualPrice().isDisplayed();
-	}
-
 	@DataProvider(name = "categoryNamesData")
 	public Object[][] categoryNamesData() {
 		// You have data from row 4 to 8 → total 5 rows (4, 5, 6, 7)

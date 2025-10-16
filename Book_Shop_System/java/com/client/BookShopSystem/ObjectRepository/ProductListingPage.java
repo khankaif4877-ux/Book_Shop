@@ -40,12 +40,14 @@ public class ProductListingPage {
 
 	@FindBy(xpath = "//span[contains(@style,'line-through;')]")
 	private WebElement actualPrice;
+
 	public WebElement getActualPrice() {
 		return actualPrice;
 	}
 
 	public int getPriceAfterDiscount(WebElement element) {
-		String number =  element.getText().substring(element.getText().length() - 13,element.getText().length() - 10).replaceAll("[^0-9.]", "");
+		String number = element.getText().substring(element.getText().length() - 14, element.getText().length() - 9)
+				.replaceAll("[^0-9.]", "");
 		return Integer.parseInt(number);
 	}
 }

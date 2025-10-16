@@ -10,8 +10,8 @@
           <include name="afterClassConfigMethod"/>
           <include name="afterSuiteConfigMethod"/>
           <include name="beforeClassConfigMethod"/>
-          <include name="DemochildAndTeensLinkAndProductListingPageTest"/>
           <include name="beforeSuitConfigMethod"/>
+          <include name="childAndTeensLinkAndProductListingPageTest"/>
         </methods>
       </class> <!-- com.client.BookShop_KK.Module.ChildrenAndTeens.ChildrenAndTeensTest -->
     </classes>
