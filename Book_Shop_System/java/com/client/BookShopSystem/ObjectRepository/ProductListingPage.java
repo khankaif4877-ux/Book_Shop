@@ -11,37 +11,41 @@ public class ProductListingPage {
 	WebDriverUtility webDrUtil;
 
 	public ProductListingPage(WebDriver driver) {
-	this.driver = driver;
-	webDrUtil = new WebDriverUtility(driver);
-	PageFactory.initElements(driver, this);
+		this.driver = driver;
+		webDrUtil = new WebDriverUtility(driver);
+		PageFactory.initElements(driver, this);
 
 	}
-	
+
 	@FindBy(xpath = "//div[@class='book-block' and contains(., 'Like a Love Song')]")
 	private WebElement randomeBook;
+
 	public WebElement getRandomeBook() {
 		return randomeBook;
 	}
-	
+
 	@FindBy(xpath = "//div[@class='book-block']")
 	private WebElement firstBook;
+
 	public WebElement getFirstBook() {
 		return firstBook;
 	}
+
 	@FindBy(xpath = "//div[@id='heading']/h2")
 	private WebElement heading;
+
 	public WebElement getHeading() {
 		return heading;
 	}
+
 	@FindBy(xpath = "//span[contains(@style,'line-through;')]")
 	private WebElement actualPrice;
 	public WebElement getActualPrice() {
 		return actualPrice;
 	}
-	
-	public int getPriceAfterDiscount(WebElement element ) {
-		
 
-	return Integer.parseInt( element.getText().substring(element.getText().length() - 13,element.getText().length() - 10));
-}
+	public int getPriceAfterDiscount(WebElement element) {
+		String number =  element.getText().substring(element.getText().length() - 13,element.getText().length() - 10).replaceAll("[^0-9.]", "");
+		return Integer.parseInt(number);
+	}
 }
