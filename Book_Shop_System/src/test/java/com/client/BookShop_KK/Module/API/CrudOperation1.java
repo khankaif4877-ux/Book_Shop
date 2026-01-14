@@ -42,7 +42,7 @@ public class CrudOperation1 extends APIBaseclass {
 		Response res = 
 				given().contentType(ContentType.JSON).queryParam("", "")
 		        .when().get("BaseUri"+"anyData"+"endPoint");
-		    
+		     res.then().assertThat().statusCode(200).contentType(ContentType.JSON).time(Matchers.lessThan(1000l));
 		String value3 = res.jsonPath().get("Key3");
 		Assert.assertEquals(value3, "Expected Value");
 	}
