@@ -2,6 +2,7 @@ package com.client.BookShop_KK.Module.API;
 
 import org.hamcrest.Matchers;
 import org.json.simple.JSONObject;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import com.client.BookShopSystem.BaseUtility.APIBaseclass;
@@ -35,6 +36,16 @@ public class CrudOperation1 extends APIBaseclass {
 		
 	}
 	
+	
+	public void get() {
+		
+		Response res = 
+				given().contentType(ContentType.JSON).queryParam("", "")
+		        .when().get("BaseUri"+"anyData"+"endPoint");
+		    
+		String value3 = res.jsonPath().get("Key3");
+		Assert.assertEquals(value3, "Expected Value");
+	}
 	
 	
 //
